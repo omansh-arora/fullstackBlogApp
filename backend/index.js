@@ -48,7 +48,7 @@ app.use(express.static(buildPath))
 
 
 app.get("/", function(req, res){
-  console.log(path.join(__dirname, "../frontend/build/index.html"));
+
   res.sendFile(
     path.join(__dirname, "../frontend/build/index.html"),
     function (err) {
@@ -87,5 +87,5 @@ app.get('/test', function (req, res) {
 })
 
 app.listen(8800, () => {
-  console.log('connected')
+  console.log('connected 8800')
 })

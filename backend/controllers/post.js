@@ -35,7 +35,7 @@ export const getPost = async (req, res) => {
       const url = await getSignedUrl(s3, command, { expiresIn: 3600 })
       post.imageUrl = url
     }
-    console.log(data)
+
     return res.status(200).json(data)
   })
 }
@@ -47,27 +47,26 @@ export const getPostOne = async (req, res) => {
   db.query(q, [req.params.id], async (err, data) => {
     if (err) return res.status(500).json(err)
 
-    console.log(data)
 
     const getObjectParams = {
       Bucket: bucketName,
       Key: data[0].img
     }
-    console.log('ff')
+
     const command = new GetObjectCommand(getObjectParams)
-    console.log('gg')
+
 
     const url = await getSignedUrl(s3, command, { expiresIn: 3600 })
     data[0].imageUrl = url
 
-    console.log(data)
+
 
     return res.status(200).json(data[0])
   })
 }
 
 export const addPost = (req, res) => {
-  console.log('yoyo')
+
   const token = req.cookies.access_token
   if (!token) return res.status(401).json('Not authorized')
 
@@ -118,7 +117,7 @@ export const updatePost = (req, res) => {
     if (err) return res.status(403).json('invalid token ')
 
     const postID = req.params.id
-    console.log(postID)
+
 
     const q =
       'UPDATE posts SET `title`=?, `desc`=?, `img`=?, `cat`=? WHERE `id` = ? AND `uid` = ?'

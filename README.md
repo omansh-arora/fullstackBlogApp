@@ -1,4 +1,4 @@
-#'BlogLife' fullstack web application
+# 'BlogLife' fullstack web application
 
 This app is a full-stack web application built with React, Express, Node.js, and MySQL, and is hosted on AWS using EC2, S3, and RDS. It's a modern and scalable solution that leverages industry-leading technologies and cloud services. The app demonstrates proficiency in front-end development, server-side programming, and database management, as well as experience with AWS cloud services.
 

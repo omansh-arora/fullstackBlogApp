@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../font/TitilliumWeb-Regular.ttf') format('truetype');
+  /* Add more src properties for different font formats if available */
+}
+
 :root {
 
     --color-background: rgba(22, 31, 156, 0.8);
@@ -10,7 +16,7 @@ html{
 }
 
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "MyCustomFont", sans-serif;
     padding: 0%;
     margin: 0%;
     
@@ -30,7 +36,7 @@ body {
     border: none;
     height: 100%;
     width: 100%;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "MyCustomFont", sans-serif;
     display: flex;
     justify-content: center;
 
@@ -93,7 +99,7 @@ body {
                     background-color: rgba(173, 152, 152, 0.1);
                     width: 250px;
                     border-radius: 3px;
-                    font-family: "Source Sans Pro", sans-serif;
+                    font-family: "MyCustomFont", sans-serif;
                     padding: 10px 15px;
                     margin: 0 auto 10px auto;
                     display: block;
@@ -112,7 +118,7 @@ body {
 
                 .butt {
                     appearance: none;
-                    font-family: "Source Sans Pro", sans-serif;
+                    font-family: "MyCustomFont", sans-serif;
                     outline: 0;
                     background-color: white;
                     border: 0;

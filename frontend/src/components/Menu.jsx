@@ -39,6 +39,9 @@ const Menu = ({ cat }) => {
   //     img: 'https://picsum.photos/536/354'
   //   }
   // ]
+  const handleClick = (post) => {
+    navigate(`/post/${post.id}`)
+  }
   return (
     <div className='menu'>
       <h1>Other posts you may like</h1>
@@ -46,7 +49,7 @@ const Menu = ({ cat }) => {
         <div className='post' key={post.id}>
           <img src={post.imageUrl} alt=''></img>
           <h2>{post.title}</h2>
-          <button>Read More</button>
+          <button onClick={handleClick(post)}>Read More</button>
         </div>
       ))}
     </div>

@@ -40,10 +40,7 @@ const Write = () => {
       return
     }
 
-    let imgURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fliftlearning.com%2Ffeatures-1%2Fdefault-image%2F&psig=AOvVaw2Du5a9MJ8_8-V8voEWgzxC&ust=1683864545932000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMihkbSy7P4CFQAAAAAdAAAAABAE'
-
-    if (state!==null) {imgURL = await upload()}
-
+    const imgURL = await upload()
     try {
       state
         ? await axios.put(`/api/posts/${state.id}`, {

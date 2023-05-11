@@ -14,7 +14,7 @@ const Write = () => {
   const state = useLocation().state
 
 
-  const [value, setValue] = useState(state?.value || '')
+  const [value, setValue] = useState(state?.desc || '')
   const [title, setTitle] = useState(state?.title || '')
   const [file, setFile] = useState(null)
   const [cat, setCat] = useState(state?.cat || '')
@@ -39,7 +39,9 @@ const Write = () => {
       return
     }
 
-    const imgURL = await upload()
+    let imgURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fliftlearning.com%2Ffeatures-1%2Fdefault-image%2F&psig=AOvVaw2Du5a9MJ8_8-V8voEWgzxC&ust=1683864545932000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMihkbSy7P4CFQAAAAAdAAAAABAE'
+
+    if (state!==null) {imgURL = await upload()}
 
     try {
       state
@@ -47,7 +49,7 @@ const Write = () => {
             title,
             desc: value,
             cat,
-            img: file ? imgURL : ''
+          
           })
         : await axios.post(`/api/posts/`, {
             title,
@@ -90,7 +92,7 @@ const Write = () => {
           <span>
             <b>Visibility: </b> Public
           </span>
-          <input
+          {state? '' : <div><input
             style={{ display: 'none' }}
             type='file'
             id='file'
@@ -102,10 +104,9 @@ const Write = () => {
           />
           <label className='upload' htmlFor='file'>
             Upload image
-          </label>
+          </label></div>}
           <label>{imgName !== '' ? imgName : ''}</label>
           <div className='buttons'>
-            <button>Save as draft</button>
             <button onClick={handleClick}>Publish</button>
           </div>
         </div>

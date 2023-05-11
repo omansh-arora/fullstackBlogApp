@@ -35,7 +35,7 @@ export const getPost = async (req, res) => {
       const url = await getSignedUrl(s3, command, { expiresIn: 3600 })
       post.imageUrl = url
     }
-
+    
     return res.status(200).json(data)
   })
 }

@@ -20,6 +20,7 @@ const Write = () => {
   const [file, setFile] = useState(null)
   const [cat, setCat] = useState(state?.cat || '')
   const [imgName, setImgName] = useState('')
+  const [err, setErr] = useState(null)
 
   const upload = async () => {
     try {
@@ -40,7 +41,12 @@ const Write = () => {
       return
     }
 
-    const imgURL = await upload()
+    if (title === '' || value === '') {
+      setErr("Please do not leave title/content blank.")
+      return
+    }
+
+    const imgURL = file? await upload() : '1683786093748default.jpeg'
     try {
       state
         ? await axios.put(`/api/posts/${state.id}`, {
@@ -53,7 +59,7 @@ const Write = () => {
             title,
             desc: value,
             cat,
-            img: file ? imgURL : '',
+            img: imgURL,
             date: moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
           })
 
@@ -107,6 +113,7 @@ const Write = () => {
           <div className='buttons'>
             <button onClick={handleClick}>{state? 'Update' : 'Publish'}</button>
           </div>
+          {err && <p className='error'>{err}</p>}
         </div>
         <div className='item'>
           <h1>Category</h1>

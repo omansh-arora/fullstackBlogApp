@@ -11,7 +11,7 @@ const Menu = ({ cat }) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`/api/posts/?cat=${cat}`)
-        setPosts(res.data)
+        setPosts(res.data.slice(0, 3))
       } catch (err) {
         console.log(err)
       }
@@ -39,9 +39,7 @@ const Menu = ({ cat }) => {
   //     img: 'https://picsum.photos/536/354'
   //   }
   // ]
-  const handleClick = (post) => {
-    navigate(`/post/${post.id}`)
-  }
+
   return (
     <div className='menu'>
       <h1>Other posts you may like</h1>
@@ -49,7 +47,7 @@ const Menu = ({ cat }) => {
         <div className='post' key={post.id}>
           <img src={post.imageUrl} alt=''></img>
           <h2>{post.title}</h2>
-          <button onClick={handleClick(post)}>Read More</button>
+          <Link to={`/post/${post.id}`}><button>Read More</button></Link>
         </div>
       ))}
     </div>

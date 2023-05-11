@@ -42,7 +42,7 @@ export const getPost = async (req, res) => {
 
 export const getPostOne = async (req, res) => {
   const q =
-    'SELECT p.id, u.id, `username`, `title`, `desc`, p.img, u.img AS userImg, `cat`,`date` FROM users u JOIN posts p ON u.id = p.uid WHERE p.id = ?'
+    'SELECT p.id, `username`, `title`, `desc`, p.img, u.img AS userImg, u.id AS uid, `cat`,`date` FROM users u JOIN posts p ON u.id = p.uid WHERE p.id = ?'
 
   db.query(q, [req.params.id], async (err, data) => {
     if (err) return res.status(500).json(err)

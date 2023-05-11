@@ -60,6 +60,58 @@ app.get("/", function(req, res){
 
 })
 
+app.get("/post/:id", function(req, res){
+
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+    );
+
+})
+
+app.get("/write", function(req, res){
+
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+    );
+
+})
+
+app.get("/login", function(req, res){
+
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+    );
+
+})
+
+app.get("/register", function(req, res){
+
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+    );
+
+})
+
 app.post('/api/upload', upload.single('file'), async (req, res) => {
   if (!req.file) return res.status(200).json('')
 

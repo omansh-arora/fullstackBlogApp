@@ -6,6 +6,7 @@ import axios from 'axios'
 import moment from 'moment'
 import { AuthContext } from '../context/authContext'
 import Login from './Login'
+import DOMPurify from "dompurify";
 
 const Write = () => {
   const navigate = useNavigate()
@@ -48,7 +49,7 @@ const Write = () => {
         ? await axios.put(`/api/posts/${state.id}`, {
             title,
             desc: value,
-            cat,
+            cat
           
           })
         : await axios.post(`/api/posts/`, {
@@ -107,7 +108,7 @@ const Write = () => {
           </label></div>}
           <label>{imgName !== '' ? imgName : ''}</label>
           <div className='buttons'>
-            <button onClick={handleClick}>Publish</button>
+            <button onClick={handleClick}>{state? 'Update' : 'Publish'}</button>
           </div>
         </div>
         <div className='item'>

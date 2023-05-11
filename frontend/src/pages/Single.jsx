@@ -7,6 +7,7 @@ import Blank from '../img/blankpfp.jpg'
 import { AuthContext } from './../context/authContext'
 import axios from 'axios'
 import moment from 'moment'
+import DOMPurify from "dompurify";
 
 const Single = () => {
   const getText = html => {
@@ -74,7 +75,9 @@ const Single = () => {
           )}
         </div>
         <h1>{post.title}</h1>
-        <p className='single-p'>{getText(post.desc)}</p>
+        <p className='single-p'dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(post.desc),
+          }}></p>
       </div>
       <Menu cat={post.cat} />
     </div>

@@ -147,6 +147,29 @@ body {
         }
 
         .navbar {
+
+            .links2{
+                align-self: flex-start;
+            }
+
+            .user-span {
+                
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                img{
+                    
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit:contain;
+                }
+                p{
+                    font-weight: 600;
+                }
+            }
+            
             .container {
                 width: 100%;
                 padding: 10px 0px;
@@ -186,6 +209,7 @@ body {
                     display: flex;
                     gap: 10px;
                     align-items:center;
+                    justify-content: center;
                     
                     padding: 10px;
 
@@ -248,7 +272,7 @@ body {
             }
 
             .logout-link {
-                
+                text-decoration: underline;
                 cursor: pointer;
                 color: inherit;
                 transition: 0.3s;

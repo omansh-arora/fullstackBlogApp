@@ -16,39 +16,47 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='links'>
-          <Link className='navbar-link' to='/?cat=lifestyle'>
-            <h6>LIFESTYLE</h6>
-          </Link>
-          <Link className='navbar-link' to='/?cat=art'>
-            <h6>ART</h6>
-          </Link>
-          <Link className='navbar-link' to='/?cat=science'>
-            <h6>SCIENCE</h6>
-          </Link>
-          <Link className='navbar-link' to='/?cat=technology'>
-            <h6>TECHNOLOGY</h6>
-          </Link>
-          <Link className='navbar-link' to='/?cat=entertainment'>
-            <h6>ENTERTAINMENT</h6>
-          </Link>
+          <div className='links links2'>
+            <Link className='navbar-link' to='/?cat=lifestyle'>
+              <h6>LIFESTYLE</h6>
+            </Link>
+            <Link className='navbar-link' to='/?cat=art'>
+              <h6>ART</h6>
+            </Link>
+            <Link className='navbar-link' to='/?cat=science'>
+              <h6>SCIENCE</h6>
+            </Link>
+            <Link className='navbar-link' to='/?cat=technology'>
+              <h6>TECHNOLOGY</h6>
+            </Link>
+            <Link className='navbar-link' to='/?cat=entertainment'>
+              <h6>ENTERTAINMENT</h6>
+            </Link>
+          </div>
           {/* <div className='user'>
             <img src={Blank} alt='' />
           </div> */}
-          <span>{currentUser?.username}</span>
-          {currentUser ? (
+
+          <span className='write-but'>
+            <Link to={currentUser ? '/write' : '/login'} className='write-link'>
+              {currentUser ? 'Write' : 'Login'}
+            </Link>
+          </span>
+          <span className='user-span'>
+            {currentUser &&
+              (currentUser.img ? (
+                <img src={`../upload/${currentUser.img}`} alt='' />
+              ) : (
+                <img src={Blank} alt='' />
+              ))}
+
+            <p>{currentUser?.username}</p>
+          </span>
+          {currentUser && (
             <span className='logout-link' onClick={logout}>
               Logout
             </span>
-          ) : (
-            <Link className='login-link link' to='/login'>
-              Login
-            </Link>
           )}
-          <span className='write-but'>
-            <Link to={currentUser ? '/write' : '/login'} className='write-link'>
-              Write
-            </Link>
-          </span>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const Write = () => {
   const state = useLocation().state
 
 
-  const [value, setValue] = useState(state?.title || '')
+  const [value, setValue] = useState(state?.value || '')
   const [title, setTitle] = useState(state?.title || '')
   const [file, setFile] = useState(null)
   const [cat, setCat] = useState(state?.cat || '')

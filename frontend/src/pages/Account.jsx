@@ -13,7 +13,7 @@ const Account = () => {
   const navigate = useNavigate()
 
   const { currentUser } = useContext(AuthContext)
-//   if (!currentUser) navigate('/login')
+  if (!currentUser) navigate('/login')
   const [username, setUsername] = useState(currentUser?.username || '')
   const [email, setEmail] = useState(currentUser?.email || '')
   const [usernameChanged, setusernameChanged] = useState(false)
@@ -23,13 +23,13 @@ const Account = () => {
   //   console.log(prevUsername)
   //   const prevEmail = currentUser.email
   //   console.log(prevEmail)
-//   useEffect(() => {
-//     setusernameChanged(username !== currentUser.username)
-//   }, [username, currentUser.username])
+  useEffect(() => {
+    setusernameChanged(username !== currentUser.username)
+  }, [username, currentUser.username])
 
-//   useEffect(() => {
-//     setemailChanged(email !== currentUser.email)
-//   }, [email, currentUser.email])
+  useEffect(() => {
+    setemailChanged(email !== currentUser.email)
+  }, [email, currentUser.email])
 
   const [err, setErr] = useState(null)
 
@@ -116,7 +116,7 @@ const Account = () => {
           value={email}
           onChange={handleEmailChange}
         />
-        <button type='submit' onClick={handleSubmit} className='butt'>
+        <button onClick={handleSubmit} className='butt'>
           Update
         </button>
       </form>

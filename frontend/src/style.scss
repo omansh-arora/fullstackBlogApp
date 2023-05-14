@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'MyCustomFont';
-  src: url('../font/TitilliumWeb-Regular.ttf') format('truetype');
-  /* Add more src properties for different font formats if available */
+    font-family: 'MyCustomFont';
+    src: url('../font/TitilliumWeb-Regular.ttf') format('truetype');
+    /* Add more src properties for different font formats if available */
 }
 
 :root {
@@ -11,20 +11,18 @@
 
 }
 
-html{
-
-}
+html {}
 
 body {
     font-family: "MyCustomFont", sans-serif;
     padding: 0%;
     margin: 0%;
-    
-    
-    
+
+
+
 }
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,10 +38,11 @@ body {
     display: flex;
     justify-content: center;
 
-    .link{
+    .link {
         text-decoration: none;
         color: inherit;
     }
+
     .container {
         box-sizing: border-box;
         width: 80%;
@@ -51,7 +50,7 @@ body {
 
 
         .auth {
-            
+
             position: absolute;
             left: 0;
             background-color: var(--color-background);
@@ -64,17 +63,19 @@ body {
             height: 100vh;
             width: 100%;
 
-            .loginBut{
+            .loginBut {
                 font-weight: 700;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 25px #ffffff, 0 0 30px #ffffff;
                 }
             }
 
-            .logo{
+            .logo {
                 padding-top: 20px;
-                img{
+
+                img {
                     width: 120px;
                 }
             }
@@ -128,6 +129,7 @@ body {
                     width: 250px;
                     font-size: 18px;
                     transition: 0.3s;
+
                     &:hover {
                         background-color: #401572;
                         /* Green */
@@ -148,28 +150,29 @@ body {
 
         .navbar {
 
-            .links2{
+            .links2 {
                 align-self: flex-start;
             }
 
             .user-span {
-                
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: 5px;
 
-                img{
-                    
+                img {
+
                     width: 40px;
                     height: 40px;
                     border-radius: 50%;
-                    object-fit:contain;
+                    object-fit: contain;
                 }
-                p{
+
+                p {
                     font-weight: 600;
                 }
             }
-            
+
             .container {
                 width: 100%;
                 padding: 10px 0px;
@@ -177,15 +180,15 @@ body {
 
                 // justify-content: space-between;
                 justify-content: space-between;
-                
+
                 font-size: 1.5rem;
 
-                .user{
+                .user {
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    
-                    img{
+
+                    img {
                         width: 30px;
                         height: 30px;
                         border-radius: 50%;
@@ -194,7 +197,7 @@ body {
                 }
 
                 .logo {
-                    
+
                     padding-top: 50px !important;
 
                     img {
@@ -208,9 +211,9 @@ body {
                 .links {
                     display: flex;
                     gap: 10px;
-                    align-items:center;
+                    align-items: center;
                     justify-content: center;
-                    
+
                     padding: 10px;
 
                     h6 {
@@ -256,7 +259,8 @@ body {
                 text-decoration: none;
                 color: inherit;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     color: #69649b;
                 }
             }
@@ -265,9 +269,10 @@ body {
                 cursor: pointer;
                 color: inherit;
                 transition: 0.3s;
-                &:hover{
+
+                &:hover {
                     color: #69649b;
-                    
+
                 }
             }
 
@@ -276,40 +281,42 @@ body {
                 cursor: pointer;
                 color: inherit;
                 transition: 0.3s;
-                &:hover{
-                    
+
+                &:hover {
+
                     color: #69649b;
                 }
             }
 
-            
+
         }
 
         //FOOTER
-        
+
 
         //HOME
-        .home{
+        .home {
 
-            .posts{
+            .posts {
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
                 gap: 150px;
 
-                .post{
+                .post {
                     display: flex;
                     gap: 100px;
 
-                    &:nth-child(2n+1){
+                    &:nth-child(2n+1) {
                         flex-direction: row-reverse;
                     }
 
-                    .img{
+                    .img {
                         flex: 2;
                         position: relative;
-                        &::after{
-                            content:"";
+
+                        &::after {
+                            content: "";
                             width: 100%;
                             height: 100%;
                             background-color: var(--color-background);
@@ -318,34 +325,37 @@ body {
                             left: -20px;
                             z-index: -1;
                         }
-                        img{
+
+                        img {
                             width: 100%;
                             height: 400px;
                             object-fit: cover;
                         }
                     }
 
-                    .content{
+                    .content {
                         flex: 3;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
 
-                        h1{
+                        h1 {
                             font-size: 48px;
                         }
-                        p{
+
+                        p {
                             font-size: 18px;
                         }
 
-                        button{
+                        button {
                             width: max-content;
                             padding: 10px 20px;
                             border: 1px solid var(--color-background);
                             cursor: pointer;
                             background-color: white;
                             transition: 0.3s;
-                            &:hover{
+
+                            &:hover {
                                 border: 1px solid white;
                                 background-color: var(--color-background);
                                 color: white;
@@ -357,72 +367,79 @@ body {
         }
 
         //SINGLE
-        .single{
+        .single {
             display: flex;
             gap: 50px;
 
-            .content{
+            .content {
 
                 flex: 5;
-                img{
+
+                img {
                     width: 100%;
                     height: 300px;
                     object-fit: cover;
                 }
 
-                .user{
+                .user {
                     display: flex;
                     align-items: center;
                     gap: 10px;
                     font-size: 14px;
-                    img{
+
+                    img {
                         width: 50px;
                         height: 50px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
-                    .info{
+
+                    .info {
                         font-size: 20px;
                         padding-top: 20px;
                         line-height: 0;
                     }
 
-                    span{
+                    span {
                         font-weight: 800;
                     }
 
 
-                    
+
                 }
-                .edit{
+
+                .edit {
                     display: flex;
                     gap: 10px;
-                    img{
+
+                    img {
                         width: 20px;
                         height: 20px;
                         cursor: pointer;
-                        &:hover{
+
+                        &:hover {
                             border-radius: 15%;
                             background-color: lightgrey;
-                            
+
                         }
                     }
                 }
-                h1{
+
+                h1 {
                     font-size: 42px;
                     font-weight: 800;
                 }
 
-                .single-p{
+                .single-p {
                     text-align: justify;
                     line-height: 30px;
                     font-size: 28px;
                 }
 
-                
+
             }
 
-            .menu{
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
@@ -431,7 +448,7 @@ body {
                 align-self: flex-start;
                 gap: 25px;
 
-                h1{
+                h1 {
                     font-size: 20px;
 
                     color: #1e1d2e;
@@ -439,27 +456,29 @@ body {
 
                 }
 
-                .post{
+                .post {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
                     align-items: center;
 
-                    img{
+                    img {
                         width: 100%;
                         height: 200px;
                         object-fit: cover;
-                    
+
                     }
                 }
-                button{
+
+                button {
                     width: max-content;
                     padding: 10px 20px;
                     border: 1px solid var(--color-background);
                     cursor: pointer;
                     background-color: white;
                     transition: 0.3s;
-                    &:hover{
+
+                    &:hover {
                         border: 1px solid white;
                         background-color: var(--color-background);
                         color: white;
@@ -469,44 +488,45 @@ body {
         }
 
         //WRITE
-        .write{
+        .write {
             margin-top: 20px;
             display: flex;
             gap: 20px;
 
-            .error{
+            .error {
                 color: red;
             }
 
-            .content{
-                flex:5;
+            .content {
+                flex: 5;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
 
-                input{
+                input {
                     padding: 10px;
                     border: 1px solid lightgray;
                 }
 
-                .editorContainer{
+                .editorContainer {
                     height: 450px;
                     overflow: scroll;
                     border: 1px solid lightgray;
-                    .editor{
+
+                    .editor {
                         height: 100%;
                         border: none;
                     }
                 }
             }
 
-            .menu{
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                
-                .item{
+
+                .item {
                     font-size: 15px;
                     border: 1px solid lightgray;
                     padding: 10px;
@@ -515,51 +535,54 @@ body {
                     flex-direction: column;
                     justify-content: space-between;
                     gap: 10px;
-                    
 
-                    h1{
+
+                    h1 {
                         font-size: 20px;
                     }
 
 
                 }
 
-                .upload{
+                .upload {
                     text-decoration: underline;
                     cursor: pointer;
                 }
 
-                .buttons{
+                .buttons {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
 
-                    :first-child{
+                    :first-child {
                         cursor: pointer;
                         color: var(--color-background);
                         background-color: white;
                         border: 1px solid var(--color-background);
                         padding: 3px 5px;
                         transition: 0.3s;
-                        &:hover{
+
+                        &:hover {
                             background-color: lightgrey;
                         }
                     }
-                    :last-child{
+
+                    :last-child {
                         cursor: pointer;
                         color: white;
                         background-color: var(--color-background);
                         border: 1px solid var(--color-background);
                         padding: 3px 5px;
                         transition: 0.3s;
-                        &:hover{
+
+                        &:hover {
                             background-color: white;
                             color: var(--color-background);
                         }
                     }
                 }
 
-                .category{
+                .category {
                     display: flex;
                     font-size: 15px;
                 }
@@ -568,11 +591,87 @@ body {
         }
 
     }
+
+    .updateAcc {
+        
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+
+        h2{
+            font-size: 40px;
+            margin-bottom: -25px;
+        }
+        h6{
+            font-size: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            input {
+                border: 1px solid rgba(235, 232, 232, 0.4);
+                background-color: rgba(173, 152, 152, 0.1);
+                width: 250px;
+                border-radius: 3px;
+                font-family: "MyCustomFont", sans-serif;
+                padding: 10px 15px;
+                margin: 0 auto 10px auto;
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                color: black;
+                font-weight: 300;
+
+                &::placeholder {
+                    /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: rgb(173, 169, 169);
+                    opacity: 1;
+                    /* Firefox */
+                }
+            }
+
+            .butt {
+                appearance: none;
+                font-family: "MyCustomFont", sans-serif;
+                outline: 0;
+                background-color: #401572;
+                border: 0;
+                padding: 10px 15px;
+                color: white;
+                border-radius: 3px;
+                width: 250px;
+                font-size: 18px;
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: white;
+                    /* Green */
+                    color: #401572;
+                }
+            }
+
+            span {
+                padding-top: 5%;
+                color: white;
+            }
+
+            p {
+                color: red;
+            }
+        }
+    }
 }
+
 
 footer {
     position: relative;
-    z-index:1;
+    z-index: 1;
     width: 100%;
     margin-top: 100px;
     // padding: 20px;
@@ -582,89 +681,95 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     img {
         padding-top: 5px;
         height: 20px;
     }
-    a{
+
+    a {
         color: white;
         padding-left: 20px;
         width: max-content;
     }
-    box-sizing: border-box; /* add this line */
+
+    box-sizing: border-box;
+    /* add this line */
     padding: 20px;
+
 }
 
 @media only screen and (max-width: 768px) {
     /* Adjustments for mobile devices */
-  
+
     .main {
-      padding-top: 50px;
+        padding-top: 50px;
     }
-  
+
     .app .container {
-      width: 100%;
+        width: 100%;
     }
-  
+
     .navbar .container {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
+
     .navbar .logo {
-      padding-top: 0;
+        padding-top: 0;
     }
-  
+
     .navbar .links {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
     }
-  
+
     .navbar .write-but {
-      margin-top: 20px;
+        margin-top: 20px;
     }
-  
+
     .home .posts {
-      gap: 50px;
+        gap: 50px;
     }
-  
+
     .home .post {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
+
     .single .content,
     .single .menu {
-      flex: 1;
+        flex: 1;
     }
-  
+
     .single .content img {
-      height: 200px;
+        height: 200px;
     }
-  
+
     .single .user {
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
     }
-  
+
     .single .edit img {
-      width: 15px;
-      height: 15px;
+        width: 15px;
+        height: 15px;
     }
-  
+
     .write .content {
-      flex: 1;
+        flex: 1;
     }
-  
+
     .write .menu {
-      flex: 1;
+        flex: 1;
     }
-  
+
     footer {
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 50px;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 50px;
     }
-  }
+
+}

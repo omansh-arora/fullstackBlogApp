@@ -15,6 +15,7 @@ import Footer from './components/Footer'
 import './style.scss'
 import React, { useContext } from 'react'
 import { AuthContext } from './context/authContext'
+import Account from './pages/Account'
 
 const Layout = () => {
   return (
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/write',
         element: <Write />
+      },
+
+      {
+        path: '/account',
+        element: <Account />
       }
     ]
   },

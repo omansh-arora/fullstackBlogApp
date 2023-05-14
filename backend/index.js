@@ -1,7 +1,6 @@
 import express from 'express'
 import postRoutes from './routes/posts.js'
 import authRoutes from './routes/auth.js'
-import userRoutes from './routes/users.js'
 import cookieParser from 'cookie-parser'
 import multer from 'multer'
 import {
@@ -100,6 +99,19 @@ app.get("/login", function(req, res){
 })
 
 app.get("/register", function(req, res){
+
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+    );
+
+})
+
+app.get("/account", function(req, res){
 
   res.sendFile(
     path.join(__dirname, "../frontend/build/index.html"),

@@ -37,7 +37,7 @@ const Navbar = () => {
             <img src={Blank} alt='' />
           </div> */}
 
-          
+          <Link to={'/account'} className='link'>
           <span className='user-span'>
             {currentUser &&
               (currentUser.img ? (
@@ -48,6 +48,7 @@ const Navbar = () => {
 
             <p>{currentUser?.username}</p>
           </span>
+          </Link>
           <span className='write-but'>
             <Link to={currentUser ? '/write' : '/login'} className='write-link'>
               {currentUser ? 'Write' : 'Login'}

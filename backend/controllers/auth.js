@@ -90,3 +90,55 @@ export const logout = (req, res) => {
     .status(200)
     .json('User logged out')
 }
+
+export const updateUsername = (req, res) => {
+
+
+  const token = req.cookies.access_token
+  if (!token) return res.status(401).json('Not authorized')
+
+  const query = 'UPDATE users SET username = ? WHERE id = ?'
+
+  const uid = req.params.id
+
+  const q = 'SELECT * FROM users WHERE username = ?'
+
+  db.query(q, [req.body.username], (err, data) => {
+    if (err) return res.status(500).json(err)
+    if (data.length) return res.status(409).json('User already exists!')
+
+    db.query(query, [req.body.username, uid], (err, data) => {
+      if (err) return res.status(500).json(err)
+      return res.status(200).json('Succesfully udpated.')
+    })
+  })
+
+
+
+}
+
+export const updateEmail = (req, res) => {
+
+
+  const token = req.cookies.access_token
+  if (!token) return res.status(401).json('Not authorized')
+
+  const query = 'UPDATE users SET email = ? WHERE id = ?'
+
+  const uid = req.params.id
+
+  const q = 'SELECT * FROM users WHERE email = ?'
+
+  db.query(q, [req.body.email, req.body.username], (err, data) => {
+    if (err) return res.status(500).json(err)
+    if (data.length) return res.status(409).json('User already exists!')
+
+    db.query(query, [req.body.email, uid], (err, data) => {
+      if (err) return res.status(500).json(err)
+      return res.status(200).json('Succesfully udpated.')
+    })
+  })
+
+
+
+}

@@ -10,19 +10,13 @@ import moment from 'moment'
 import DOMPurify from 'dompurify'
 
 const Account = () => {
-  const navigate = useNavigate()
-
   const { currentUser } = useContext(AuthContext)
-  if (!currentUser) navigate('/login')
+  const navigate = useNavigate()
   const [username, setUsername] = useState(currentUser?.username || '')
   const [email, setEmail] = useState(currentUser?.email || '')
   const [usernameChanged, setusernameChanged] = useState(false)
   const [emailChanged, setemailChanged] = useState(false)
 
-  //   const prevUsername = currentUser.username
-  //   console.log(prevUsername)
-  //   const prevEmail = currentUser.email
-  //   console.log(prevEmail)
   useEffect(() => {
     setusernameChanged(username !== currentUser.username)
   }, [username, currentUser.username])
@@ -33,21 +27,17 @@ const Account = () => {
 
   const [err, setErr] = useState(null)
 
+  if (!currentUser) {
+    navigate('/login')
+    return null
+  }
+
   const handleUsernameChange = async e => {
     setUsername(e.target.value)
-
-    // if (username.toLowerCase() === prevUsername.toLowerCase()) {
-    //   console.log('false user lol')
-    //   setusernameChanged(false)
-    // } else setusernameChanged(true)
   }
 
   const handleEmailChange = e => {
     setEmail(e.target.value)
-    // if (email.toLowerCase() === prevEmail.toLowerCase()) {
-    //   console.log('false user lol')
-    //   setemailChanged(false)
-    // } else setemailChanged(true)
   }
 
   const handleSubmit = async e => {
@@ -100,13 +90,14 @@ const Account = () => {
       <h2>Account Page</h2>
       <h6>You will be forced to login again after updating</h6>
       <form>
-      <input
+        <input
           required
           name='username'
           type='text'
           placeholder='Username'
           value={username}
           onChange={handleUsernameChange}
+          autocomplete="off"
         />
         <input
           required
@@ -115,6 +106,7 @@ const Account = () => {
           placeholder='Email'
           value={email}
           onChange={handleEmailChange}
+          autocomplete="off"
         />
         <button onClick={handleSubmit} className='butt'>
           Update

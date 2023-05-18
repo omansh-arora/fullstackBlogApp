@@ -77,6 +77,7 @@ const Write = () => {
           placeholder='Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
+          autocomplete="off"
         />
         <div className='editorContainer'>
           <ReactQuill

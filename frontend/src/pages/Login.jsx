@@ -44,12 +44,14 @@ const Login = () => {
           type='text'
           placeholder='Username'
           onChange={handleChange}
+          autocomplete="off"
         />
         <input
           name='password'
           type='password'
           placeholder='Password'
           onChange={handleChange}
+          autocomplete="off"
         />
 
         <button type='submit' className='butt' onClick={handleSubmit}>

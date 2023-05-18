@@ -50,6 +50,7 @@ const Register = () => {
           type='text'
           placeholder='Username'
           onChange={handleChange}
+          autocomplete="off"
         />
         <input
           required
@@ -57,6 +58,7 @@ const Register = () => {
           type='email'
           placeholder='Email'
           onChange={handleChange}
+          autocomplete="off"
         />
         <input
           required
@@ -64,6 +66,7 @@ const Register = () => {
           type='password'
           placeholder='Password'
           onChange={handleChange}
+          autocomplete="off"
         />
 
         <button type='submit' className='butt' onClick={handleSubmit}>

@@ -34,13 +34,15 @@ const Register = () => {
       setError("Please enter a username");
       return;
     }
+    if (inputs.email === "") {
+      setError("Please enter an email");
+      return;
+    }
     if (inputs.password === "") {
       setError("Please enter a password");
       return;
     }
-    if (inputs.email === "") {
-      setError("Please enter an email");
-    }
+
     e.preventDefault();
     try {
       const res = await axios.post("/api/auth/register", inputs, config);

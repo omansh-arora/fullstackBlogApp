@@ -26,6 +26,14 @@ const Login = () => {
   }
 
   const handleSubmit = async e => {
+    if (inputs.username === "") {
+      setError("Please enter a username");
+      return;
+    }
+    if (inputs.password === "") {
+      setError("Please enter a password");
+      return;
+    }
     e.preventDefault()
     try {
       await login(inputs)
@@ -54,7 +62,7 @@ const Login = () => {
           autocomplete="off"
         />
 
-        <button type='submit' className='butt' onClick={handleSubmit}>
+        <button type='button' className='butt' onClick={handleSubmit}>
           Login
         </button>
         {err && <p>{err}</p>}

@@ -66,31 +66,40 @@ export const getPostOne = async (req, res) => {
 }
 
 export const addPost = (req, res) => {
-
-  const token = req.cookies.access_token
-  if (!token) return res.status(401).json('Not authorized')
+  const token = req.cookies.access_token;
+  if (!token) return res.status(401).json('Not authorized');
 
   jwt.verify(token, 'jwtkey', (err, userInfo) => {
-    if (err) return res.status(403).json('invalid token ')
+    if (err) return res.status(403).json('Invalid token ');
 
-    const q =
-      'INSERT INTO posts (`title`, `desc`, `img`,`cat`, `date`,`uid`) VALUES (?)'
+    // Counting the number of posts
+    const countQuery = 'SELECT COUNT(*) as count FROM posts';
+    db.query(countQuery, (err, result) => {
+      if (err) return res.status(500).json(err);
 
-    const values = [
-      req.body.title,
-      req.body.desc,
-      req.body.img,
-      req.body.cat,
-      req.body.date,
-      userInfo.id
-    ]
+      const postCount = result[0].count;
 
-    db.query(q, [values], (err, data) => {
-      if (err) return res.status(401).json(err)
-      return res.status(200).json('Post created')
-    })
-  })
-}
+      if (postCount >= 100) {
+        return res.status(403).json('Maximum post limit reached');
+      }
+
+      const insertQuery = 'INSERT INTO posts (`title`, `desc`, `img`,`cat`, `date`,`uid`) VALUES (?)';
+      const values = [
+        req.body.title,
+        req.body.desc,
+        req.body.img,
+        req.body.cat,
+        req.body.date,
+        userInfo.id
+      ];
+
+      db.query(insertQuery, [values], (err, data) => {
+        if (err) return res.status(401).json(err);
+        return res.status(200).json('Post created');
+      });
+    });
+  });
+};
 
 export const deletePost = (req, res) => {
   const token = req.cookies.access_token

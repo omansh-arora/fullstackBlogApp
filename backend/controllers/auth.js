@@ -4,32 +4,41 @@ import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 
 export const register = (req, res) => {
-  //CHECK EXISTING USER
-  const q = 'SELECT * FROM users WHERE email = ? OR username = ?'
+  // Check existing user
+  const checkExistingUserQuery = 'SELECT COUNT(*) as count FROM users';
+  db.query(checkExistingUserQuery, (err, result) => {
+    if (err) return res.status(500).json(err);
 
-  db.query(q, [req.body.email, req.body.username], (err, data) => {
-    if (err) return res.status(500).json(err)
-    if (data.length) return res.status(409).json('User already exists!')
+    const userCount = result[0].count;
 
-    //Hash the password and create a user
-    const saltR = 10
-    let hash1 = ''
-    bcrypt.hash(req.body.password, saltR, (err, hash) => {
-      if (err) {
-        res.send(500, err)
-      } else {
-        const q = 'INSERT INTO users(`username`,`email`,`password`) VALUES (?)'
-        const values = [req.body.username, req.body.email, hash.toString()]
+    if (userCount >= 100) {
+      return res.status(403).json('Maximum user limit reached');
+    }
 
-        db.query(q, [values], (err, hash) => {
-          if (hash === '') return res.status(500).json('Hashing failed')
-          if (err) return res.status(500).json(err)
-          return res.status(200).json('User has been created.')
-        })
-      }
-    })
-  })
-}
+    const checkUserQuery = 'SELECT * FROM users WHERE email = ? OR username = ?';
+    db.query(checkUserQuery, [req.body.email, req.body.username], (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (data.length) return res.status(409).json('User already exists!');
+
+      // Hash the password and create a user
+      const saltRounds = 10;
+      bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+        if (err) {
+          return res.status(500).json('Hashing failed');
+        } else {
+          const insertUserQuery = 'INSERT INTO users(`username`,`email`,`password`) VALUES (?)';
+          const values = [req.body.username, req.body.email, hash];
+
+          db.query(insertUserQuery, [values], (err, result) => {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json('User has been created.');
+          });
+        }
+      });
+    });
+  });
+};
+
 
 export const login = (req, res) => {
   const q = 'SELECT * FROM users WHERE username = ?'

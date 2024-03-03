@@ -42,7 +42,7 @@ const Home = () => {
                 <h1>{post.title}</h1>
               </Link>
               <p>{getText(post.desc).substring(0, 150) + '...'}</p>
-
+              
               <button
                 onClick={() => {
                   navigate(`/post/${post.id}`)
